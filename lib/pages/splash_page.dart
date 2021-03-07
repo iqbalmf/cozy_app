@@ -1,5 +1,7 @@
 import 'package:cozy/pages/home_page.dart';
+import 'package:cozy/pages/login_page.dart';
 import 'package:cozy/theme.dart';
+import 'package:cozy/widget/button_item.dart';
 import 'package:flutter/material.dart';
 
 class SplashPage extends StatelessWidget {
@@ -11,7 +13,9 @@ class SplashPage extends StatelessWidget {
         bottom: false,
         child: Stack(
           children: [
-            Align(alignment: Alignment.bottomCenter, child: Image.asset('assets/images/splash_image.png')),
+            Align(
+                alignment: Alignment.bottomCenter,
+                child: Image.asset('assets/images/splash_image.png')),
             Padding(
               padding: EdgeInsets.only(top: 50, left: 30),
               child: Column(
@@ -40,22 +44,7 @@ class SplashPage extends StatelessWidget {
                   SizedBox(
                     height: 40,
                   ),
-                  Container(
-                    width: 210,
-                    height: 50,
-                    child: RaisedButton(
-                      onPressed: () {
-                        Navigator.push(context, MaterialPageRoute(builder: (context) => HomePage()));
-                      },
-                      color: purpleColor,
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(17)),
-                      child: Text(
-                        'Explore Now',
-                        style: textWhiteStyle.copyWith(fontSize: 18),
-                      ),
-                    ),
-                  ),
+                  ButtonItem('/login', 'Explore')
                 ],
               ),
             ),

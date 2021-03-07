@@ -1,3 +1,7 @@
+import 'package:cozy/pages/detail_page.dart';
+import 'package:cozy/pages/home_page.dart';
+import 'package:cozy/pages/login_page.dart';
+import 'package:cozy/pages/register_page.dart';
 import 'package:cozy/pages/splash_page.dart';
 import 'package:cozy/providers/space_provider.dart';
 import 'package:cozy/theme.dart';
@@ -29,7 +33,13 @@ class MyApp extends StatelessWidget {
       create: (context) => SpaceProvider(),
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: SplashPage(),
+        initialRoute: '/',
+        routes: {
+          '/' : (context) => SplashPage(),
+          '/home' : (context) => HomePage(),
+          '/login' : (context) => LoginPage(),
+          '/register': (context) => RegisterPage()
+        },
       ),
     );
   }
