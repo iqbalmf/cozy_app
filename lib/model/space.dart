@@ -1,18 +1,18 @@
 class Space {
-  int id;
-  String nameSpace;
-  String imageUrlSpace;
-  String city;
-  String country;
-  int price;
-  int rating;
-  String mapUrl;
-  String phone;
-  List photos;
-  int nKitchen;
-  int nBedroom;
-  int nCupboard;
-  String address;
+  int? id;
+  String? nameSpace;
+  String? imageUrlSpace;
+  String? city;
+  String? country;
+  int? price;
+  int? rating;
+  String? mapUrl;
+  String? phone;
+  List? photos;
+  int? nKitchen;
+  int? nBedroom;
+  int? nCupboard;
+  String? address;
 
   Space({
     this.id,
@@ -32,7 +32,7 @@ class Space {
   });
 
   Space.fromJson(json){
-     id = json['id'];
+     id = json['id'] ?? null;
      nameSpace = json['name'];
      imageUrlSpace = json['image_url'];
      city = json['city'];

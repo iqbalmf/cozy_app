@@ -25,7 +25,7 @@ class SpaceCard extends StatelessWidget {
               child: Stack(
                 children: [
                   Image.network(
-                    space.imageUrlSpace,
+                    space.imageUrlSpace ?? '',
                     width: 130,
                     height: 110,
                     fit: BoxFit.cover,
@@ -67,7 +67,7 @@ class SpaceCard extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                space.nameSpace,
+                space.nameSpace ?? "",
                 style: textTitleStyle.copyWith(fontSize: 18),
               ),
               Text.rich(TextSpan(
