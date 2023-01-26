@@ -29,7 +29,7 @@ class DetailPage extends StatelessWidget {
         child: Stack(
           children: [
             Image.network(
-              space.imageUrlSpace,
+              space.imageUrlSpace ?? '',
               width: MediaQuery.of(context).size.width,
               height: 350,
               fit: BoxFit.cover,
@@ -60,7 +60,7 @@ class DetailPage extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  space.nameSpace,
+                                  space.nameSpace ?? '',
                                   style: textTitleStyle.copyWith(fontSize: 22),
                                 ),
                                 Text.rich(TextSpan(
@@ -81,7 +81,7 @@ class DetailPage extends StatelessWidget {
                                   margin: EdgeInsets.only(left: 2),
                                   child: RatingItem(
                                     index: index,
-                                    rating: space.rating,
+                                    rating: space.rating ?? 0,
                                   ),
                                 );
                               }).toList(),
@@ -110,17 +110,17 @@ class DetailPage extends StatelessWidget {
                             FacilityItem(
                               name: 'kitchen',
                               imageUrl: 'assets/images/icon_kitchen.png',
-                              countItem: space.nKitchen,
+                              countItem: space.nKitchen ?? 0,
                             ),
                             FacilityItem(
                               name: 'bedroom',
                               imageUrl: 'assets/images/icon_badroom.png',
-                              countItem: space.nBedroom,
+                              countItem: space.nBedroom ?? 0,
                             ),
                             FacilityItem(
                               name: 'Big Lemari',
                               imageUrl: 'assets/images/icon_cupboard.png',
-                              countItem: space.nCupboard,
+                              countItem: space.nCupboard ?? 0,
                             ),
                           ],
                         ),
@@ -142,7 +142,7 @@ class DetailPage extends StatelessWidget {
                         height: 88,
                         child: ListView(
                             scrollDirection: Axis.horizontal,
-                            children: space.photos.map((item) {
+                            children: space.photos?.map((item) {
                               return Container(
                                 margin: EdgeInsets.only(
                                   left: 24,
@@ -157,7 +157,7 @@ class DetailPage extends StatelessWidget {
                                   ),
                                 ),
                               );
-                            }).toList()),
+                            }).toList() ?? []),
                       ),
                       SizedBox(
                         height: 30,
@@ -178,7 +178,7 @@ class DetailPage extends StatelessWidget {
                                 style: textSubtitleStyle),
                             InkWell(
                               onTap: () {
-                                launchUrl(space.mapUrl);
+                                launchUrl(space.mapUrl ?? '');
                               },
                               child: Image.asset(
                                 'assets/images/btn_map.png',

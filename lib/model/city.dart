@@ -4,5 +4,9 @@ class City {
   String imageUrl;
   bool isPopular;
 
-  City({this.id, this.nameCity, this.imageUrl, this.isPopular});
+  City(
+      {this.id = 0,
+      this.nameCity = "",
+      this.imageUrl = "",
+      this.isPopular = false});
 }

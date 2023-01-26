@@ -109,20 +109,21 @@ class HomePage extends StatelessWidget {
                   future: spaceProvider.getRecommendedSpace(),
                   builder: (context, snapshot) {
                     if (snapshot.hasData) {
-                      List<Space> data = snapshot.data;
+                      List<Space> data = snapshot.data as List<Space>;
 
                       int index = 0;
 
                       return Column(
-                        children: data.map((item) {
-                          index++;
-                          return Container(
-                            margin: EdgeInsets.only(
-                              top: index == 1 ? 0 : 30,
-                            ),
-                            child: SpaceCard(item),
-                          );
-                        }).toList(),
+                        children: data?.map((item) {
+                              index++;
+                              return Container(
+                                margin: EdgeInsets.only(
+                                  top: index == 1 ? 0 : 30,
+                                ),
+                                child: SpaceCard(item),
+                              );
+                            }).toList() ??
+                            [],
                       );
                     } else {
                       return Center(

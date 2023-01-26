@@ -2,10 +2,10 @@ import 'package:cozy/theme.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavbar extends StatelessWidget {
-  final String imageUrl;
+  final String? imageUrl;
   final bool isActive;
 
-  BottomNavbar({this.imageUrl, this.isActive});
+  BottomNavbar({this.imageUrl, this.isActive = false});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class BottomNavbar extends StatelessWidget {
       children: [
         Spacer(),
         Image.asset(
-          this.imageUrl,
+          this.imageUrl ?? "",
           width: 26,
         ),
         Spacer(),
