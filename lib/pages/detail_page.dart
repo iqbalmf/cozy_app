@@ -76,13 +76,9 @@ class DetailPage extends StatelessWidget {
                               ],
                             ),
                             Row(
-                              children: [
-                                1,2,3,4,5
-                              ].map((index){
+                              children: [1, 2, 3, 4, 5].map((index) {
                                 return Container(
-                                  margin: EdgeInsets.only(
-                                    left: 2
-                                  ),
+                                  margin: EdgeInsets.only(left: 2),
                                   child: RatingItem(
                                     index: index,
                                     rating: space.rating,
@@ -200,10 +196,12 @@ class DetailPage extends StatelessWidget {
                         margin: EdgeInsets.symmetric(horizontal: edge),
                         height: 50,
                         width: MediaQuery.of(context).size.width - (2 * edge),
-                        child: RaisedButton(
-                          color: purpleColor,
-                          shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(18)),
+                        child: ElevatedButton(
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: purpleColor,
+                            shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(18)),
+                          ),
                           onPressed: () {
                             launchUrl('tel:+${space.phone}');
                           },
